@@ -340,6 +340,14 @@ function highlightTodaySpecial() {
   badge.classList.add('today-badge');
   badge.textContent = '✨ TODAY';
   todayCard.appendChild(badge);
+
+  // Scroll the row so today's card is centred
+  const row = document.getElementById('daily-specials-grid');
+  if (!row) return;
+  setTimeout(() => {
+    const scrollTo = todayCard.offsetLeft - (row.offsetWidth / 2) + (todayCard.offsetWidth / 2);
+    row.scrollTo({ left: scrollTo, behavior: 'smooth' });
+  }, 300);
 }
 
 // --- Magnetic Buttons ---

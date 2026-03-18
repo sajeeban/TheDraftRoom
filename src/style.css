@@ -1572,7 +1572,7 @@ h1, h2, h3, h4, h5, h6 {
 .today-badge {
   position: absolute;
   top: 8px;
-  right: 8px;
+  left: 8px;
   background: var(--color-gold);
   color: var(--color-bg-primary);
   font-size: 0.55rem;
