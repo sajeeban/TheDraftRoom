@@ -2043,12 +2043,6 @@ h1, h2, h3, h4, h5, h6 {
   /* --- Hero --- */
   .hero {
     min-height: 100svh;
-    background-image: url('/images/generated/hero-exterior.jpg');
-    background-size: cover;
-    background-position: center;
-  }
-  .hero-video {
-    display: none;
   }
   .hero-content {
     padding: 0 1.25rem;
