@@ -10,7 +10,19 @@
   <meta property="og:type" content="website" />
   <link rel="icon" type="image/png" href="https://draftroom.ca/storage/2020/06/draftroom-logo.png" />
 </head>
-<body>
+<body class="dark-theme">
+
+  <!-- ========== PRELOADER ========== -->
+  <div class="preloader" id="preloader">
+    <div class="preloader-panel preloader-panel-top"></div>
+    <div class="preloader-panel preloader-panel-bottom"></div>
+    <div class="preloader-content" id="preloader-content">
+      <img src="./images/logo/draftroom-logo.png" alt="Draft Room Logo" class="preloader-logo" />
+      <div class="preloader-bar-wrap">
+        <div class="preloader-bar" id="preloader-bar"></div>
+      </div>
+    </div>
+  </div>
 
   <!-- ========== NAVBAR ========== -->
   <nav class="navbar" id="navbar">
@@ -44,13 +56,13 @@
     <a href="https://www.kitchonapp.ca/api/fb/lyxzj" target="_blank" class="btn btn-primary" style="margin-top:1rem;">Order Online</a>
   </div>
 
-  <!-- ========== HERO CAROUSEL ========== -->
+  <!-- ========== HERO SECTION ========== -->
   <section class="hero" id="home">
-    <div class="hero-carousel" id="heroCarousel">
-      <div class="hero-slide active" style="background-image: url('./images/generated/hero-exterior.jpg');"></div>
-      <div class="hero-slide" style="background-image: url('./images/generated/hero-storefront.jpg');"></div>
-      <div class="hero-slide" style="background-image: url('./images/generated/luxury-bar.png');"></div>
-    </div>
+    <video autoplay loop muted playsinline class="hero-video" poster="./images/generated/hero-exterior.jpg">
+      <source src="./images/generated/4667124-uhd_4096_2160_25fps.mp4" type="video/mp4" />
+      <!-- Fallback message for older browsers -->
+      Your browser does not support the video tag.
+    </video>
     <div class="hero-overlay"></div>
     <div class="hero-particles" id="heroParticles"></div>
     <div class="hero-content">

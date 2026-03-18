@@ -7,7 +7,8 @@ import './style.css';
 
 document.addEventListener('DOMContentLoaded', () => {
   initNavbar();
-  initHeroCarousel();
+  // initHeroCarousel();
+  initPreloader();
   initScrollReveal();
   initHeroAnimation();
   initHeroParticles();
@@ -17,6 +18,51 @@ document.addEventListener('DOMContentLoaded', () => {
   highlightTodaySpecial();
   initMagneticButtons();
 });
+
+function initPreloader() {
+  const preloader = document.getElementById('preloader');
+  const bar = document.getElementById('preloader-bar');
+  const content = document.getElementById('preloader-content');
+  let count = 0;
+  
+  // Quick fake progress loop
+  const interval = setInterval(() => {
+    if (document.readyState === 'complete') {
+      clearInterval(interval);
+      return;
+    }
+    if (count < 99) {
+      count += Math.floor(Math.random() * 5) + 1;
+      if (count > 99) count = 99;
+      if (bar) bar.style.width = count + '%';
+    }
+  }, 25);
+  
+  // Real finish
+  window.addEventListener('load', () => {
+    clearInterval(interval);
+    if (bar) bar.style.width = '100%';
+    
+    setTimeout(() => {
+      if (preloader) {
+        // Step 1: Fade out the logo and loading bar
+        if (content) content.style.opacity = '0';
+        
+        // Step 2: Slide the shutter panels open
+        setTimeout(() => {
+          preloader.classList.add('finished');
+          
+          // Trigger hero slide up animation
+          const hero = document.querySelector('.hero');
+          if (hero) hero.classList.add('hero-animate'); 
+          
+          // Clean up DOM layer so clicks pass completely safely below
+          setTimeout(() => preloader.style.display = 'none', 1800);
+        }, 800); // Wait for logo to fade out (slower)
+      }
+    }, 400); // Small pause at 100% completion
+  });
+}
 
 // --- Navbar scroll effect ---
 function initNavbar() {
